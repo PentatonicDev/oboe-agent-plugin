@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "oboe": {
+      "type": "http",
+      "url": "https://oboe.pentatonic.dev/mcp"
+    }
+  }
+}

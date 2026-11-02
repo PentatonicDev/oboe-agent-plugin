@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "oboe",
+  "version": "0.1.0",
+  "description": "Oboé: conecte suas contas de apps ao agente por um único servidor MCP, com a skill que ensina a usá-lo. / Connect your app accounts to your agent through one MCP server, plus the skill that teaches how to use it.",
+  "author": { "name": "Pentatonic", "url": "https://oboe.pentatonic.dev" },
+  "homepage": "https://oboe.pentatonic.dev",
+  "repository": "https://github.com/PentatonicDev/oboe-agent-plugin",
+  "license": "Proprietary",
+  "keywords": ["oboe", "mcp", "oauth", "apps"]
+}

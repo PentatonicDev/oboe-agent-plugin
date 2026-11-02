@@ -1,0 +1,10 @@
+{
+  "name": "oboe",
+  "version": "0.1.0",
+  "description": "Oboé: servidor MCP e skill oboe para o Gemini CLI.",
+  "mcpServers": {
+    "oboe": {
+      "httpUrl": "https://oboe.pentatonic.dev/mcp"
+    }
+  }
+}

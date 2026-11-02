@@ -1,0 +1,13 @@
+{
+  "name": "oboe",
+  "description": "Plugin do Oboé para o Claude Code",
+  "owner": { "name": "Pentatonic", "url": "https://oboe.pentatonic.dev" },
+  "plugins": [
+    {
+      "name": "oboe",
+      "source": "./",
+      "description": "Servidor MCP do Oboé e a skill oboe",
+      "version": "0.1.0"
+    }
+  ]
+}

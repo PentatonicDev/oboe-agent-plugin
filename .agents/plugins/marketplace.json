@@ -1,0 +1,12 @@
+{
+  "name": "oboe",
+  "interface": { "displayName": "Oboé" },
+  "plugins": [
+    {
+      "name": "oboe",
+      "source": { "source": "local", "path": "./" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_USE" },
+      "category": "Productivity"
+    }
+  ]
+}
