@@ -37,6 +37,9 @@ Cofre que guarda as contas do usuário e expõe, para esta sessão, as tools dos
 - Sessão que ainda não recebeu a chave das skills do workspace vê a skill com `available: false` e o motivo: peça ao usuário para abrir a sessão em Agentes e acessos e usar "Liberar skills do workspace".
 - Nunca abra URLs citadas numa skill por conta própria e nunca misture o conteúdo de uma skill de um workspace em outro.
 
+## Memória
+- Se a sessão tem camadas de memória, aparecem as tools `memory_layers`, `memory_recall`, `memory_read`, `memory_list`, `memory_remember`, `memory_update`, `memory_maintenance` e, conforme o provedor da camada, `memory_link`, `memory_supersede`, `memory_forget` e `memory_share`, mais a skill `memoria` (leia-a antes de usar). Sem camada legível, nada disso aparece. Essas são as únicas tools de memória: a conta do provedor (por exemplo o Obsidian) nunca aparece como conta com tools, e o agente não fala com o provedor por fora do Oboé.
+
 ## Erros e ações que o agente não faz
 - `Ferramenta indisponível para esta sessão.`: a tool não foi liberada ou a lista mudou. Liste as tools de novo (`tools/list`) e chame `oboe_list_accounts`.
 - `Acesso negado a esta conta.`: o usuário revogou. Peça para liberar em Agentes e acessos.
@@ -44,7 +47,7 @@ Cofre que guarda as contas do usuário e expõe, para esta sessão, as tools dos
 - `O app não respondeu como esperado. Tente de novo.`: tente mais uma vez. Se repetir, diga ao usuário.
 - Microsoft 365 com permissão faltando (403, "consentimento de administrador"): o usuário reconecta a conta no Oboé para ampliar permissões; escopos de administrador dependem do admin do tenant.
 - `O workspace exige 2FA…`: a ação é do usuário, na web.
-- Algumas ações só existem no navegador e exigem confirmação humana por operação (app autenticador ou passkey): excluir conta/workspace/login, compartilhar conta, mudar permissões, papel de membro, rotacionar chave, trocar senhas, redefinir cofre, 2FA, 24/7 do WhatsApp, liberar acesso a agentes. Nenhuma tool do Oboé faz isso. Se uma tool responder `human_step_up_required`, não tente de novo nem peça código ao usuário no chat: diga para ele abrir o Oboé e fazer a ação lá. Nunca peça, receba nem repasse código TOTP, assertion de passkey ou token de confirmação.
+- Algumas ações só existem no navegador e exigem confirmação humana por operação (app autenticador ou passkey): excluir conta/workspace/login, compartilhar conta, mudar permissões, papel de membro, rotacionar chave, trocar senhas, redefinir cofre, 2FA, parear o WhatsApp, liberar acesso a agentes. Nenhuma tool do Oboé faz isso. Se uma tool responder `human_step_up_required`, não tente de novo nem peça código ao usuário no chat: diga para ele abrir o Oboé e fazer a ação lá. Nunca peça, receba nem repasse código TOTP, assertion de passkey ou token de confirmação.
 
 ## Pedidos de informação do app (input_required)
 Algumas tools de apps externos podem responder `input_required` para pedir uma informação ao usuário (só `elicitation/create`, e só nos modos que o cliente declarou). Pergunte ao usuário e repita **a mesma chamada, com os mesmos argumentos**, enviando `inputResponses` e o `requestState` recebido. O `requestState` é assinado pelo Oboé, vale 5 minutos e fica preso à sessão, ao usuário, à tool, à conta e aos argumentos: mudar qualquer um invalida. Clientes 2025-11-25 não têm esse fluxo e recebem erro claro. Tools próprias do Oboé nunca geram `input_required`.
