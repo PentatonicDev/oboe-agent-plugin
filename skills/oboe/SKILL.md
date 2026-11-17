@@ -10,9 +10,9 @@ license: Proprietary
 Cofre que guarda as contas do usuário e expõe, para esta sessão, as tools dos apps que ele liberou. O agente nunca vê credenciais. O que a sessão enxerga é só o que o usuário liberou na web; o acesso é revalidado a cada chamada.
 
 ## Descobrir o que existe
-- `oboe_list_accounts`: só leitura. Devolve workspace, app, conta e o prefixo das tools de cada conta liberada. Comece por aqui quando o usuário disser "a conta X do workspace Y".
+- `oboe_list_accounts`: só leitura. Devolve workspace, app (com o host, nos apps fora do catálogo), conta e o prefixo das tools de cada conta liberada. Comece por aqui quando o usuário disser "a conta X do workspace Y".
 - Nomes de tools: `<app>_<conta>_<tool>`. Com mais de um workspace que entrega itens (contas ou skills publicadas): `<workspace>_<app>_<conta>_<tool>`.
-- A descrição de cada tool começa com `[app · conta · workspace]`. Use para confirmar a conta antes de agir.
+- A descrição de cada tool começa com `[app · conta · workspace]`; nos apps fora do catálogo o app vem seguido do host (`[app · mcp.exemplo.com · conta · workspace]`). Use para confirmar a conta antes de agir e para distinguir servidores diferentes.
 - `oboe_search_tools`: só leitura. Recebe `use_case` (a tarefa em linguagem natural) e devolve `primary_tools`, `related_tools` e, quando existe playbook, `plan_steps`, `pitfalls` e `difficulty`. Chame antes de qualquer tarefa que use mais de uma tool. A busca é por palavras, sem IA, e só considera tools que a sessão pode usar.
 
 ## Escolher conta e workspace
