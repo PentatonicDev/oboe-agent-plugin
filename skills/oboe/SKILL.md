@@ -58,6 +58,10 @@ Cofre que guarda as contas do usuário e expõe, para esta sessão, as tools dos
 ## Memória
 - Se a sessão tem camadas de memória, aparecem as tools `memory_layers`, `memory_recall`, `memory_read`, `memory_list`, `memory_remember`, `memory_update`, `memory_maintenance` e, conforme o provedor da camada, `memory_link`, `memory_supersede`, `memory_forget` e `memory_share`, mais a skill `memoria` (leia-a antes de usar). Sem camada legível, nada disso aparece. Essas são as únicas tools de memória: a conta do provedor (por exemplo o Obsidian) nunca aparece como conta com tools, e o agente não fala com o provedor por fora do Oboé.
 
+## Code Mode (experimental)
+- O usuário pode ligar o Code Mode por agente, nos detalhes do agente (desligado por padrão). Ligado, a lista traz as tools de contexto e `oboe_code_search`, `oboe_code_execute` e `oboe_call_tool`; as tools dos apps não são listadas, mas continuam valendo, com o mesmo acesso, política e auditoria, chamadas de dentro do código. Leia a skill `code-mode` (`skill://oboe/code-mode/SKILL.md`) antes de usar.
+- Tool que exige confirmação não executa dentro do código: volta `ConfirmationRequired` e você usa `oboe_call_tool` depois que o usuário confirmar. Desligado, tudo volta ao normal na próxima listagem.
+
 ## Erros e ações que o agente não faz
 - `Ferramenta indisponível para esta sessão.`: a tool não foi liberada ou a lista mudou. Liste as tools de novo (`tools/list`) e chame `oboe_list_accounts`.
 - `Acesso negado a esta conta.`: o usuário revogou. Peça para liberar em Agentes e acessos.
